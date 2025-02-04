@@ -25,6 +25,7 @@ def main():
 
     fontRegistered()
     plt.rc('font', family='NanumGothic')
+
     st.title('K-Means Clustering App')
 
     # 1. csv file upload
