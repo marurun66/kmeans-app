@@ -15,11 +15,11 @@ import matplotlib.font_manager as fm
 
 @st.cache_data
 def fontRegistered():
+    st.cache_data.clear()
     font_dirs = [os.getcwd() + '/custom_fonts']
     font_files = fm.findSystemFonts(fontpaths=font_dirs)
     for font_file in font_files:
         fm.fontManager.addfont(font_file)
-    st.cache_data.clear()
     fm._load_fontmanager(try_read_cache=False)
 ## 한글폰트 설정
 
