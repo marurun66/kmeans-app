@@ -6,18 +6,27 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
-import platform
-import platform
 
-if platform.system() == 'Windows':
-    plt.rcParams['font.family'] = 'Malgun Gothic'
-elif platform.system() == 'Linux':
-    plt.rcParams['font.family'] = 'NanumGothic'
+## 한글 폰트 설정
+import os
+import matplotlib.font_manager as fm
+@st.cache_data
+def fontRegistered():
+    font_dirs = [os.getcwd() + '/custom_fonts']
+    font_files = fm.findSystemFonts(fontpaths=font_dirs)
+    for font_file in font_files:
+        fm.fontManager.addfont(font_file)
+    fm._load_fontmanager(try_read_cache=False)
 
-plt.rcParams['axes.unicode_minus'] = False
+## 한글폰트 설정
+
 
 
 def main():
+
+    fontRegistered()
+    plt.rc('font', family='NanumGothic')
+
     st.title('K-Means Clustering App')
 
     # 1. csv file upload
