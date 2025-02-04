@@ -80,11 +80,14 @@ def main():
             kmeans.fit(df_new)
             wcss.append( kmeans.inertia_ )
 
+        plt.rcParams['font.family'] = 'NanumGothic' # 맥 기본 한글 서체
+        plt.rcParams['axes.unicode_minus'] = False # 마이너스 기호 깨짐 방지
+
         fig1 = plt.figure()
         plt.plot( range(1, max_k+1) ,  wcss )
         plt.title('The Elbow Method')
-        plt.xlabel('# of clusters')
-        plt.ylabel('WCSS')
+        plt.xlabel('클러스터 개수')
+        plt.ylabel('WCS 값')
         st.pyplot( fig1 ) 
         
     
