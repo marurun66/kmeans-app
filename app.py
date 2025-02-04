@@ -17,7 +17,6 @@ def fontRegistered():
     for font_file in font_files:
         fm.fontManager.addfont(font_file)
     fm._load_fontmanager(try_read_cache=False)
-
 ## 한글폰트 설정
 
 
@@ -26,7 +25,6 @@ def main():
 
     fontRegistered()
     plt.rc('font', family='NanumGothic')
-
     st.title('K-Means Clustering App')
 
     # 1. csv file upload
