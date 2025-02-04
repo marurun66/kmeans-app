@@ -6,6 +6,16 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
+import platform
+import platform
+
+if platform.system() == 'Windows':
+    plt.rcParams['font.family'] = 'Malgun Gothic'
+elif platform.system() == 'Linux':
+    plt.rcParams['font.family'] = 'NanumGothic'
+
+plt.rcParams['axes.unicode_minus'] = False
+
 
 def main():
     st.title('K-Means Clustering App')
@@ -80,8 +90,6 @@ def main():
             kmeans.fit(df_new)
             wcss.append( kmeans.inertia_ )
 
-        plt.rcParams['font.family'] = 'NanumGothic' # 맥 기본 한글 서체
-        plt.rcParams['axes.unicode_minus'] = False # 마이너스 기호 깨짐 방지
 
         fig1 = plt.figure()
         plt.plot( range(1, max_k+1) ,  wcss )
